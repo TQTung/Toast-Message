@@ -1,0 +1,141 @@
+
+:root{
+    --success: green;
+    --warning: orange;
+    --error: red;
+
+    --success-bg: rgba(40,126,32,0.6);
+    --warning-bg:rgba(219,146,21,0.6);
+    --error-bg: rgba(255,34,34,0.6);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    font-family: "Poppins" sans-serif;
+    background-color: #ecf0f1;
+
+}
+#container{
+    margin: auto;
+}
+
+#container .btn{
+    padding: 8px 16px;
+    color: #fff;
+    margin: 0 10px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+#container .btn:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+.btn-success{
+    background-color: var(--success) ;
+}
+.btn-warning{
+    background-color: var(--warning) ;
+}
+.btn-error{
+    background-color: var(--error) ;
+}
+
+#wrapper{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+.toast{
+    position: relative;
+    padding:20px 15px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    animation: slideShow 2s ease forwards;
+
+}
+.toast .time-out{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--success);
+    height: 4px;
+    animation: timeOut 4s ease forwards;
+}
+.toast.toast-success i{
+    margin-right:5px;
+}
+.toast.toast-success{
+    background-color: var(--success-bg);
+    border-left:6px solid var(--success);
+    
+}
+.toast.toast-warning{
+    background-color: var(--warning-bg);
+    border-left:6px solid var(--warning);
+}
+.toast.toast-error{
+    background-color: var(--error-bg);
+    border-left:6px solid var(--error);
+}
+.toast.toast-success .time-out{
+    background-color: var(--success);
+}
+.toast.toast-warning .time-out{
+    background-color: var(--warning);
+}
+.toast.toast-error .time-out{
+    background-color: var(--error);
+}
+
+@keyframes timeOut {
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 0;
+    }
+}
+
+@keyframes slideShow {
+    0%{
+        transform:translateX(100%)
+    }
+    25%{
+        transform:translateX(-10%)
+    }
+    50%{
+        transform:translateX(0)
+    }
+    100%{
+        transform:translateX(-10px)
+    }
+}
+@keyframes slideHide {
+    0%{
+        transform:translateX(-10%)
+    }
+    25%{
+        transform:translateX(0)
+    }
+    50%{
+        transform:translateX(-10%)
+    }
+    100%{
+        transform:translateX(200%)
+    }
+}
